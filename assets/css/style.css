@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.row {
+    padding-top: 50px;
+}
+
+.player_card {
+    border: 2px solid white ;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.character_name {
+    position: relative;
+    top: -150px;
+    left: 0;
+    width: 100%;
+}
+
+.character_hp {
+    position: relative;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+}
