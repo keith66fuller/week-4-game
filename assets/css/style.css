@@ -4,12 +4,12 @@ body {
 }
 
 .row {
-    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .player_card {
     border: 2px solid white ;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     padding-bottom: 20px;
 }
 

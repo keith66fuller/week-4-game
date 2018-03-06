@@ -1,8 +1,31 @@
+function shuffle(o) {
+    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
+
+function moveCard(o,cardId) {
+    console.log(o);
+    id=o.id;
+    buttonId=id.replace(' ','\\ ');
+    id=id.replace('button_','#div_').replace(' ','\\ ');
+    console.log("characterToPlayer " + id);
+
+    // Capture the player card in 'element' before removing it from the deck
+    var element = $(id).get();
+
+    //Remove player card from deck
+    $(id).remove();
+
+    //Place the player card in the player slot
+    $(cardId).append(element);
+
+    //Take the button from the card; it is no longer neccessary.
+    $(o.id).remove();
+
+    console.log("ELEMENT " + element);
+}
+
 $(document).ready(function(){
-    function shuffle(o) {
-        for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-        return o;
-    };
 
     class Character {
         constructor(name,icon,hp) {
@@ -60,19 +83,14 @@ $(document).ready(function(){
         }  
     ];
 
-    // Super-Battle-Droid.png
-    // Lando.png
-    // Luke-Skywalker.png
-    // Jango-Fett.png
-    // Han-Solo.png
-    // Darth-Maul.png
 
-    
+    // shuffle the card deck
     characters = shuffle(characters_bank).slice(0,5);
 
+    // Render the card deck characters
     characters.forEach(element => {
         $('#card_deck').append(`
-        <div class="player_card" style="text-align: center;">
+        <div id="div_${element.name}" class="player_card" style="text-align: center;">
             <img src="./assets/images/characters/${element.icon}" class="player_icon" alt="">
             <div class="character_name">
                 ${element.name}
@@ -80,10 +98,22 @@ $(document).ready(function(){
             <div class="character_hp">
                 ${element.hp}
             </div>
-            <button type="button" class="btn btn-dark">Use</button>
+            <button id="button_${element.name}" type="button" class="btn btn-dark useButton">Use</button>
         </div>`);
     });
 
+    $('.useButton').click(function(id){
+        moveCard(this,'#playerCard');
+        // Now, the next time a useButton is clicked, the card will go to the defender.
+        $('.useButton').click(function(id){
+            moveCard(this,'#defenderCard');
 
+            //Now, disable all of those buttons.
+            $('.useButton').unbind('click');
+            
+        });        
+        
+    });
+    //$('.useButton').attr('onclick','alert("Hello")');
 
 });
