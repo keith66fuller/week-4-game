@@ -13,6 +13,10 @@ body {
     padding-bottom: 20px;
 }
 
+img {
+    background-color: dimgrey;
+}
+
 /* .character_name {
     position: relative;
     top: -150px;

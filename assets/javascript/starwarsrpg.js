@@ -133,6 +133,55 @@ $(document).ready(function(){
             'hp'    :   190,
             'ap'    :   15,
             'cap'   :   6
+        },
+        {
+            'name'  :   'Greedo',
+            'icon'  :   'Greedo.png',
+            'hp'    :   300,
+            'ap'    :   30,
+            'cap'   :   3
+        },
+        {
+            'name'  :   'General Grievous',
+            'icon'  :   'General-Grievous.png',
+            'hp'    :   160,
+            'ap'    :   10,
+            'cap'   :   20
+        },
+        {
+            'name'  :   'Padme Amidala',
+            'icon'  :   'Padme-Amidala.png',
+            'hp'    :   190,
+            'ap'    :   20,
+            'cap'   :   11
+        },
+        {
+            'name'  :   'Mace Windu',
+            'icon'  :   'Mace-Windu-02.png',
+            'hp'    :   222,
+            'ap'    :   22,
+            'cap'   :   2
+        },
+        {
+            'name'  :   'Darth Sidious',
+            'icon'  :   'Darth-Sidious-01.png',
+            'hp'    :   111,
+            'ap'    :   11,
+            'cap'   :   13
+        },
+        {
+            'name'  :   'Bail Organa',
+            'icon'  :   'Bail-Organa.png',
+            'hp'    :   202,
+            'ap'    :   4,
+            'cap'   :   44
+        },
+        {
+            'name'  :   'Admiral Ackbar',
+            'icon'  :   'Ackbar.png',
+            'hp'    :   165,
+            'ap'    :   18,
+            'cap'   :   8
         }  
     ];
     function shuffle(o) {
