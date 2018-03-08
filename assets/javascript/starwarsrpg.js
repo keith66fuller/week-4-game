@@ -152,13 +152,9 @@ $(document).ready(function(){
     characters.forEach(element => {
         $('#card_deck').append(`
         <div id="div_${element.charId}" class="player_card" style="text-align: center;">
+            <div class="character_name">${element.name}</div>
             <img src="./assets/images/characters/${element.icon}" class="player_icon" alt="">
-            <div class="character_name">
-                ${element.name}
-            </div>
-            <div class="character_hp">
-                ${element.hp}
-            </div>
+            <div class="character_hp">${element.hp}</div>
             <button id="button_${element.charId}" type="button" class="btn btn-dark useButton">Use</button>
         </div>`);
     });
