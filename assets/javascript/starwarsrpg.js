@@ -169,8 +169,8 @@ $(document).ready(function(){
         // cardId = the id of the div to which we will append a new element.
         var id = o.id;
         
-        // o.id ~ button_CHARACTER
-        // id ~ div_CHARACTER
+        // o.id == 'button_CHARACTER'
+        // id   == 'div_CHARACTER'
         id=(o.id).replace('button_','#div_');
         charId=(o.id).replace('button_','');
 
@@ -180,14 +180,16 @@ $(document).ready(function(){
         //Remove player div from deck
         $(id).remove();
 
-        // Remove any div already in the slot
+        // Remove any div already in the destination div
         $(cardId).empty();
 
-        //Place the div in the slot
+        //Place the character div in the target div
         $(cardId).append(element);
 
         //Take the button from the div; it is no longer neccessary.
-        $(o.id).remove();
+        $(`${cardId} button`).remove();
+        
+        
 
         // Remove the character from the characters array.
         // When this array is empty, game is over and player has beaten all defenders.
@@ -242,10 +244,10 @@ $(document).ready(function(){
             });
 
             // End of round. Did someone die?
-            if (player.hp < 0) {
+            if (player.hp <= 0) {
                 // Player died.  Game over.
                 gameState = newGameState(4);
-            } else if (defender.hp < 0) {
+            } else if (defender.hp <= 0) {
                 // Defender died
                 if (characters.length == 0) {
                     // No more characters to become next Defender.  Player won.  Game over.
