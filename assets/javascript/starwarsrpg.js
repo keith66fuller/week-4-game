@@ -146,7 +146,9 @@ $(document).ready(function(){
     });
 
     // shuffle the card deck, take maxCharacters characters from it
-    characters = shuffle(characters_bank.slice(0,maxCharacters));
+    // bug12 - slice after shuffle, not before
+    // characters = shuffle(characters_bank.slice(0,maxCharacters));
+    characters = shuffle(characters_bank).slice(0,maxCharacters);
 
     // Render the card deck characters on the screen
     characters.forEach(element => {
