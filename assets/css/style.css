@@ -1,28 +1,62 @@
+div[class*="col-"] {
+    padding:    0px;
+}
+
 body {
     background-color: black;
     color: white;
+    font-size: 5vmin;
 }
 
 .row {
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
 }
 
 .player_card {
     border: 2px solid white ;
-    /* padding-top: 20px; */
-    padding-bottom: 20px;
 }
 
-/* .character_name {
-    position: relative;
-    top: -150px;
-    left: 0;
-    width: 100%;
+.character_name {
+    margin-bottom: 10px;
+    font-size: 4vmin;
 }
 
-.character_hp {
-    position: relative;
-    bottom: 25px;
-    left: 0;
-    width: 100%;
-} */
+.useButton {
+    vertical-align: 0%;
+}
+
+#attackButton {
+    font-size: 3vmin;
+}
+
+.character_hp,.character_name {
+    font-size: 2vmin;
+}
+
+.playSlotLabel {
+    font-size: 3vmin;
+    text-decoration: underline;
+}
+.message {
+    font-size: 2vmin;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+@media (max-width: @screen-l) {
+    body {
+        font-size: 2vmin;
+    }
+}
+
+@media (max-width: @screen-sm) {
+    /* body{font-size: 14px;} */
+}
+
+@media (max-width: @screen-xs) {
+    /* body{font-size: 10px;} */
+}
+
