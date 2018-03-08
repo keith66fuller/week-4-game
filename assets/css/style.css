@@ -16,6 +16,10 @@ body {
     border: 2px solid white ;
 }
 
+img {
+    background-color: dimgrey;
+}
+
 .character_name {
     margin-bottom: 10px;
     font-size: 4vmin;
@@ -58,5 +62,5 @@ img {
 
 @media (max-width: @screen-xs) {
     /* body{font-size: 10px;} */
-}
+
 
