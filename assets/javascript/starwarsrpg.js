@@ -239,11 +239,38 @@ $(document).ready(function(){
                 $('div#div_'+c.charId+' > div.character_hp').text(c.hp);
             });
 
+            // Add some effects
+            // the one with the higher HP will 'pulsate'
+            // and the other will 'shake'
+
+            // $('#playerCard .player_card').animate({"border-style": "dashed"}, 2000);
+            
+            // $('#playerCard .player_card').toggle(2000);
+
+
+            function attackAnimation(strWinner,strLoser) {
+                $(`#${strWinner}Card .player_icon`).animate({height: "+=10px" , width: "+=10px"},'fast').animate({height: "-=10px" , width: "-=10px"},'fast');;
+                $(`#${strLoser}Card .player_icon`).animate({height: "-=10px" , width: "-=10px"},'fast').animate({height: "+=10px" , width: "+=10px"},'fast');;
+                $(`#${strLoser}Card .player_card`).css("border-style","dashed");
+                $(`#${strWinner}Card .player_card`).css("border-style","solid");
+
+            }
+
+            if (player.hp > defender.hp) {
+                attackAnimation('player','defender');
+            } else if (defender.hp > player.hp) {
+                attackAnimation('defender','player');
+            } else {
+                // Don't animate in the rare case they tie
+            }
+
             // End of round. Did someone die?
             if (player.hp <= 0) {
                 // Player died.  Game over.
                 gameState = newGameState(4);
+                $('#playerCard .character_name').css('text-decoration', 'line-through');
             } else if (defender.hp <= 0) {
+                $('#defenderCard .character_name').css('text-decoration', 'line-through');
                 // Defender died
                 if (characters.length == 0) {
                     // No more characters to become next Defender.  Player won.  Game over.
