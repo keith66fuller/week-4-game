@@ -202,11 +202,11 @@ $(document).ready(function(){
     // Render the card deck characters on the screen
     characters.forEach(element => {
         $('#card_deck').append(`
-        <div id="div_${element.charId}" class="player_card" style="text-align: center;">
-            <div class="character_name">${element.name}</div>
-            <img src="./assets/images/characters/${element.icon}" class="player_icon" alt="">
-            <div class="character_hp">${element.hp}</div>
+        <div id="div_${element.charId}" class="player_card d-flex flex-column-reverse" style="text-align: center;">
             <button id="button_${element.charId}" type="button" class="btn btn-dark useButton">Use</button>
+            <div class="character_hp">${element.hp}</div>
+            <img src="./assets/images/characters/${element.icon}" class="player_icon" alt="">
+            <div class="character_name">${element.name}</div>
         </div>`);
     });
 
